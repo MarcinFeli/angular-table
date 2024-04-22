@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { EmployeeNetland, Position } from '../employee-netland.interface';
 
 @Component({
@@ -6,8 +6,9 @@ import { EmployeeNetland, Position } from '../employee-netland.interface';
   templateUrl: './employee-form.component.html',
   styleUrls: ['./employee-form.component.scss'],
 })
-export class EmployeeFormComponent {
+export class EmployeeFormComponent implements OnChanges {
   @Input() isEdited: boolean = true;
+  @Input() employeeToEdit: EmployeeNetland | null = null;
 
   positions = Object.values(Position);
   employee: EmployeeNetland = {
@@ -22,6 +23,12 @@ export class EmployeeFormComponent {
   formError: string | null = null;
   formErrorVisible: boolean = false;
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['employeeToEdit'] && this.employeeToEdit) {
+      this.employee = { ...this.employeeToEdit }; // Kopiowanie danych pracownika do formularza
+    }
+  }
+
   onSubmit() {
     if (!this.employee.name || !this.employee.age || !this.employee.position) {
       this.formError = 'Name, age, and position are required.';
@@ -34,6 +41,13 @@ export class EmployeeFormComponent {
     this.addEmployee.emit(this.employee);
     this.employee = { name: '', age: null, isFullTime: false, position: null };
     this.formError = null;
+  }
+  onInputChange(event: any) {
+    const pattern = /^[0-9]*$/;
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^0-9]/g, "");
+      this.employee.age = event.target.value;
+    }
   }
 
   onCancel() {

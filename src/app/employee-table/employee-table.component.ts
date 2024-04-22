@@ -48,6 +48,7 @@ export class EmployeeTableComponent {
       const index = this.employees.indexOf(this.selectedEmployee);
       if (index !== -1) {
         this.employees[index] = employee;
+        this.isEditedEmployee = false;
       }
       this.selectedEmployee = null;
     } else {

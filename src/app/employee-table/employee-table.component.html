@@ -44,7 +44,7 @@
       </table>
 </div>
 
-<app-employee-form *ngIf="showAddForm" [isEdited]="isEditedEmployee"  (addEmployee)="addEmployee($event)" (cancelAdd)="onCancelAdd()"></app-employee-form>
+<app-employee-form *ngIf="showAddForm" [isEdited]="isEditedEmployee" [employeeToEdit]="selectedEmployee" (addEmployee)="addEmployee($event)" (cancelAdd)="onCancelAdd()"></app-employee-form>
 
 <div *ngIf="showDeleteConfirmation" class="modal">
   <div class="modal-content">
