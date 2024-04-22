@@ -92,3 +92,65 @@ table {
     }
   }
 }
+
+.modal {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  .modal-header {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+
+  .btns {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .delete-btn,
+  .cancel-btn {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .delete-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+  }
+  .cancel-btn {
+    background-color: white;
+    color: #5d789a;
+    border: 1px solid #5d789a;
+  }
+}
+
+.modal button {
+  margin: 0 5px;
+  padding: 8px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+}

@@ -19,13 +19,12 @@ export class AppComponent {
   }
 
   deleteEmployee(index: number) {
-    if (confirm('Are you sure you want to delete this employee?')) {
       this.employees.splice(index, 1);
-    }
+    
   }
   showAddForm: boolean = false;
 
-  cancleAdd() {
+  cancelAdd() {
     this.showAddForm = false;
   }
 
