@@ -11,8 +11,10 @@ export class EmployeeTableComponent {
   @Output() editEmployee = new EventEmitter<EmployeeNetland>();
   @Output() deleteEmployee = new EventEmitter<number>();
   @Output() addNewEmployee = new EventEmitter<void>();
+  @Output() isEdited = new EventEmitter<boolean>();
   
   showAddForm: boolean = false;
+  isEditedEmployee: boolean = false;
   isHoveredIndex: number | null = null;
   selectedEmployee: EmployeeNetland | null = null;
 
@@ -20,6 +22,7 @@ export class EmployeeTableComponent {
   onEdit(employee: EmployeeNetland) {
     this.selectedEmployee = employee;
     this.showAddForm = true;
+    this.isEditedEmployee = true;
   }
 
   onDelete(index: number) {
@@ -47,6 +50,7 @@ export class EmployeeTableComponent {
   onCancelAdd() {
     this.showAddForm = false;
     this.selectedEmployee = null;
+    this.isEditedEmployee = false;
   }
 
   onRowHover(index: number) {

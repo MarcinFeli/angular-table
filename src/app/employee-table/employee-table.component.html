@@ -44,4 +44,4 @@
       </table>
 </div>
 
-<app-employee-form *ngIf="showAddForm"  (addEmployee)="addEmployee($event)" (cancelAdd)="onCancelAdd()"></app-employee-form>
+<app-employee-form *ngIf="showAddForm" [isEdited]="isEditedEmployee"  (addEmployee)="addEmployee($event)" (cancelAdd)="onCancelAdd()"></app-employee-form>

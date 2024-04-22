@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { EmployeeNetland, Position } from '../employee-netland.interface';
 
 @Component({
@@ -7,6 +7,8 @@ import { EmployeeNetland, Position } from '../employee-netland.interface';
   styleUrls: ['./employee-form.component.scss'],
 })
 export class EmployeeFormComponent {
+  @Input() isEdited: boolean = true;
+
   positions = Object.values(Position);
   employee: EmployeeNetland = {
     name: '',

@@ -1,7 +1,7 @@
 <div class="flex-container">
   <div class="flex-item">
     <div class="card">
-      <div class="card-header">Add new employee</div>
+      <div class="card-header"> {{ isEdited ? 'Edit employee' : 'Add new employee' }} </div>
       <form (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="name ">Name and surname</label>
@@ -24,7 +24,7 @@
         <div *ngIf="formError" class="error-message" [ngClass]="{ 'show': formErrorVisible }">{{ formError }}</div>
         <div class="buttons">
           <button class="cancle-btn" type="button" (click)="onCancel()">Cancle</button>
-          <button type="submit" class="submit-btn">Add employee</button>
+          <button type="submit" class="submit-btn">{{ isEdited ? 'Save' : 'Add employee' }} </button>
         </div>
       </form>
     </div>
