@@ -25,7 +25,7 @@ export class EmployeeFormComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['employeeToEdit'] && this.employeeToEdit) {
-      this.employee = { ...this.employeeToEdit }; // Kopiowanie danych pracownika do formularza
+      this.employee = { ...this.employeeToEdit };
     }
   }
 
