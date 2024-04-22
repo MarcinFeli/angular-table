@@ -1,0 +1,32 @@
+<div class="flex-container">
+  <div class="flex-item">
+    <div class="card">
+      <div class="card-header">Add new employee</div>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name ">Name and surname</label>
+          <input class="input" name="name" [(ngModel)]="employee.name" type="text" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input class="input" [(ngModel)]="employee.age" name="age" type="number" required>
+        </div>
+        <div class="form-group">
+          <label for="position">Position</label>
+          <select class="input" [(ngModel)]="employee.position" name="position" required>
+            <option *ngFor="let pos of positions" [value]="pos">{{ pos }}</option>
+          </select>
+        </div>
+        <div class="checkbox">
+          <label>Full time</label>
+          <input class="check" [(ngModel)]="employee.isFullTime" name="isFullTime" type="checkbox">
+        </div>
+        <div *ngIf="formError" class="error-message" [ngClass]="{ 'show': formErrorVisible }">{{ formError }}</div>
+        <div class="buttons">
+          <button class="cancle-btn" type="button" (click)="onCancel()">Cancle</button>
+          <button type="submit" class="submit-btn">Add employee</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
